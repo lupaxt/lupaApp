@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react-scripts": "2.1.2",
     "apollo-boost": "0.1.22",
     "apollo-client": "2.4.7",
     "apollo-client-preset": "1.0.8",
@@ -22,6 +21,7 @@
     "react-list": "^0.8.10",
     "react-modal": "3.6.1",
     "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.2",
     "styled-components": "^4.1.2",
     "subscriptions-transport-ws": "^0.9.15",
     "tachyons": "4.11.1",
