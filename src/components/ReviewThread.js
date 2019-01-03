@@ -16,7 +16,7 @@ export default function ReviewThread({review, user, showmore = true}) {
             <span>{review.emoji ? String.fromCodePoint(review.emoji) : ""}</span>
             {!isPreview && <>
                 <span className="reviewtitle">{review.title || "/"}</span>
-                <span className="targettext">{urlpretty(review.target) || "/"}</span>
+                <span className="targettext"><a href={review.target} target="_blank" rel="noopener">{urlpretty(review.target) || "/"}</a></span>
                 <span style={{color: "grey", fontSize: "0.7rem"}}>{timeDifferenceForDate(review.updatedAt)}</span>
                 <br/>
                 <div style={{marginLeft: "2rem"}}>
