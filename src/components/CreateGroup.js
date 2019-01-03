@@ -42,7 +42,7 @@ const CreateGroupMeta = withFormik({
         description: Yup.string()
             .required("Put a group description there")
             .min(10, "Tell me a bit more... about the group")
-            .min(80, "80 characters max for now. Thanks")
+            .max(80, "80 characters max for now. Thanks")
     }),
     async handleSubmit(
         {description, name} /* form values */,
@@ -50,7 +50,7 @@ const CreateGroupMeta = withFormik({
     ) {
         try {
             const data = await getGroupByName(name);
-            console.log(data, "getname");
+            // console.log(data, "getname");
             if (data.groupByName) {
                 setErrors({submitter: "Groupname is taken :( "});
                 return;
