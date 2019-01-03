@@ -33,15 +33,13 @@ export default class AuthMonitor extends Container {
             if (!user || user.uid === this.state.uid) {
                 return
             }
-
-            this.setState({user});
             if (user) {
-                console.log("user", user, "user");
+                // console.log("user", user, "user");
                 const idToken = await this.getIdToken(user)
                 const lupa_user = await this.getUser(user.uid)
 
                 this.setState({
-                    idToken, lupa_user, user, uid: user.uid,
+                    user, idToken, lupa_user, user, uid: user.uid,
                     authState: (user.emailVerified
                         ? authStati.signed_in_verfied
                         : authStati.signed_in_unverified)
@@ -61,7 +59,7 @@ export default class AuthMonitor extends Container {
 
     async getUser(uid) {
         const {user} = await getUser(uid);
-        console.log("luparillo", user);
+        // console.log("luparillo", user);
         sessionStorage.setItem("lupa_user", JSON.stringify(user))
         return user
     }

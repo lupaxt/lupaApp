@@ -28,8 +28,14 @@ export default function Querier({query, prop=null, children}) {
         fetcher();
     }, [ee])
 
-    return (loading ? <div>...Loading</div>
-        : (done
-            ? children({error, data: (prop? data[prop]: data), loading})
-            : error ? (<div>{error.message}</div>) : <div>Something failed somewhere...</div>))
+    return loading ? <div>
+        <div>...Loading</div>
+        <div style={fontStyle: "italic"}>If this takes more than 5 seconds ==> Check if you're logged in <a href="/account"> /account </a></div>
+      </div> : done ? children({
+        error,
+        data: prop ? data[prop] : data,
+        loading
+      }) : error ? <div>
+        {error.message}
+      </div> : <div>Something failed somewhere...</div>;
 }

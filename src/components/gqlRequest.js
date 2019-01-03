@@ -11,8 +11,5 @@ async function gqlRequest(...options) {
             Authorization: `Bearer ${token}`,
         },
     })
-
-    console.log('gql request !')
-
     return graphQLClient.request(...options)
 }
