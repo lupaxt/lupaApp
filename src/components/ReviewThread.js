@@ -13,7 +13,7 @@ export default function ReviewThread({review, user, showmore = true}) {
     return <>
         <div key={review.id} className="textbubbles">
             <button className="nametag" onClick={() => setIsPreview(!isPreview)}>{review.author.name}</button>
-            <span>{review.emoji ? String.fromCodePoint(review.emoji) : ""}</span>
+            <span>{review.emoji && !isNaN(review.emoji) ? String.fromCodePoint(review.emoji) : ""}</span>
             {!isPreview && <>
                 <span className="reviewtitle">{review.title || "/"}</span>
                 <span className="targettext"><a href={review.target} target="_blank" rel="noopener">{urlpretty(review.target) || "/"}</a></span>
